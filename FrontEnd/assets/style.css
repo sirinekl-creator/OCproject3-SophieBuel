@@ -121,10 +121,46 @@ li:hover {
 #introduction p {
 	margin-bottom: 0.5em;
 }
+
+/* -------------------------------------------------
+   SECTION 1: PORTFOLIO: MES PROJETS
+-------------------------------------------------- */
+
+/* titre de la section */
 #portfolio h2 {
 	text-align: center;
 	margin-bottom: 1em;
 }
+
+/* filtres des catégories: boutons */
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 50px;
+}
+
+.filter-btn {
+  border: 1px solid #1D6154;
+  background-color: white;
+  color: #1D6154;
+  padding: 10px 20px;
+  border-radius: 60px;
+  cursor: pointer;
+  font-family: 'Syne';
+}
+
+.filter-btn:hover {
+  background-color: #1D6154;
+  color: white;
+}
+
+.filter-btn.active {
+  background-color: #1D6154;
+  color: white;
+}
+
+/* galerie des projets */
 .gallery {
 	width: 100%;
 	display: grid;
@@ -137,6 +173,11 @@ li:hover {
 	width: 100%;
 
 }
+
+/* -------------------------------------------------
+   SECTION 2: CONTACT
+-------------------------------------------------- */
+
 #contact {
 	width: 50%;
 margin: auto;
@@ -179,6 +220,10 @@ input[type="submit"]{
 	text-align: center;
 	border-radius: 60px ;
 }
+
+/* -------------------------------------------------
+   FOOTER
+-------------------------------------------------- */
 
 footer nav ul {
 	display: flex;
