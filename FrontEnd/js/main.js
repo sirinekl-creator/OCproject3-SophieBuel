@@ -2,8 +2,8 @@
 
 
 //PROJETS & FILTRES CATEGORIES
-import { getWorks, getCategories } from "./API.js";
-import { displayWorks, displayCategories } from "./displaydata.js";
+import { getWorks, getCategories } from "./api/api.js";
+import { displayWorks, displayCategories } from "./components/gallery.js";
 
 let allWorks = [];
 

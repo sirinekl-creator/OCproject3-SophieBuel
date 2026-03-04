@@ -47,12 +47,19 @@ table {
 	border-spacing: 0;
 }
 /** end reset css**/
+
+/* -------------------------------------------------
+   GENERAL STYLES for all pages
+-------------------------------------------------- */
+
 body {
 	max-width: 1140px;
 	margin:auto;
 	font-family: 'Work Sans' ;
 	font-size: 14px;
+	background-color: #FFFEF8;
 }
+
 header {
 	display: flex;
 	justify-content: space-between;
@@ -122,8 +129,46 @@ li:hover {
 	margin-bottom: 0.5em;
 }
 
+footer {
+	font-family: "Work Sans", sans-serif;
+	font-weight: 300;
+	font-size: 14px;
+}
+
+footer ul {
+	display: flex;
+	justify-content: flex-end;
+	margin: 2em;
+}
+
 /* -------------------------------------------------
-   SECTION 1: PORTFOLIO: MES PROJETS
+   HOMEPAGE: Header
+-------------------------------------------------- */
+
+.homepage-header h1 {
+	gap: 10px;
+}
+
+.homepage-header span {
+	font-family: "Work Sans", sans-serif;
+	font-size: 10px;
+	font-weight: 400;
+}
+
+.homepage-header a {
+	text-decoration: none;
+	color: black;
+	font-family: "Work Sans", sans-serif;
+	font-weight: 400;
+}
+
+.homepage-header img {
+	width: 22px;
+	height: 22px;
+}
+
+/* -------------------------------------------------
+   HOMEPAGE : Section 1: Mes projets
 -------------------------------------------------- */
 
 /* titre de la section */
@@ -175,7 +220,7 @@ li:hover {
 }
 
 /* -------------------------------------------------
-   SECTION 2: CONTACT
+   HOMEPAGE: Section 2: Contact
 -------------------------------------------------- */
 
 #contact {
@@ -221,13 +266,114 @@ input[type="submit"]{
 	border-radius: 60px ;
 }
 
+
+
 /* -------------------------------------------------
-   FOOTER
+   LOGIN PAGE
 -------------------------------------------------- */
 
-footer nav ul {
-	display: flex;
-	justify-content: flex-end;
-	margin: 2em
+/* -------------------------------------------------
+   LOGIN PAGE: Header
+-------------------------------------------------- */
+.login-header h1 {
+	gap: 10px;
 }
 
+.login-header span {
+	font-family: "Work Sans", sans-serif;
+	font-size: 10px;
+	font-weight: 400;
+}
+
+.login-header a {
+	text-decoration: none;
+	color: black;
+	font-family: "Work Sans", sans-serif;
+	font-weight: 400;
+}
+
+.login-header #authLink {
+	font-family: "Work Sans", sans-serif;
+	font-weight: 600;
+}
+
+.login-header img {
+	width: 22px;
+	height: 22px;
+}
+
+/* -------------------------------------------------
+   LOGIN PAGE: main section: Log In
+-------------------------------------------------- */
+
+.login-container {
+	width: 400px;
+	margin: 100px auto;
+	text-align: center;
+}
+
+.login-container h2 {
+	color: #1D6154;
+	font-family: 'Syne';
+	font-weight: 700;
+	font-size: 26px;
+	margin-bottom: 2rem;
+}
+
+.login-form {
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+}
+
+.login-form .email,
+.login-form .password {
+	gap: 5px;
+}
+
+.login-form label {
+	text-align: left;
+	font-family: 'Work Sans';
+	font-size: 14px;
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"] {
+	height: 50px;
+	font-size: 1.1rem;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0,0,0,0.09);
+	padding: 0 10px;
+}
+
+.login-error {
+	display: none;
+	margin-top: 0.8rem;
+}
+
+.login-forgot {
+	display: inline-block;
+	margin-top: 0.5rem;
+	font-family: "Work Sans";
+	font-size: 14px;
+	text-decoration: underline;
+	color: #3D3D3D;
+	font-weight: 500;
+}
+
+.login-btn {
+	font-family: 'Syne';
+	font-size: 14px;
+	font-weight: 700;
+	color: white;
+	background-color: #1D6154;
+	border: none;
+	border-radius: 60px;
+	height: 36px;
+	width: 179px;
+	margin: 1.5rem auto 0;
+	cursor: pointer;
+}
+.login-btn:hover {
+	filter: brightness(0.95);
+}
