@@ -1,9 +1,11 @@
 /* --ce fichier coordonne tout-- */
 
 
-//PROJETS & FILTRES CATEGORIES
+//PROJETS, FILTRES CATEGORIES et EDIT MODE HOMEPAGE
 import { getWorks, getCategories } from "./api/api.js";
 import { displayWorks, displayCategories } from "./components/gallery.js";
+import { initHomepage } from "./pages/index.js";
+initHomepage();
 
 let allWorks = [];
 

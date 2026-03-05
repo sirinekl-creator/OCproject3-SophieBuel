@@ -141,9 +141,35 @@ footer ul {
 	margin: 2em;
 }
 
+
+/* -------------------------------------------------
+   HOMEPAGE: EDIT BANNER when the user is logged in
+-------------------------------------------------- */
+#edit-banner {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 59px;
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  align-items: center;
+  justify-content: center;
+  gap: 21px;
+}
+
+#edit-banner.active {
+  display: flex;
+}
+
 /* -------------------------------------------------
    HOMEPAGE: Header
 -------------------------------------------------- */
+.homepage-header {
+	margin-bottom: 120px;
+}
 
 .homepage-header h1 {
 	gap: 10px;
@@ -167,14 +193,66 @@ footer ul {
 	height: 22px;
 }
 
+/* Shift the header when edit mode is active */
+body.logged-in .homepage-header {
+  margin-top: 80px;
+}
+
 /* -------------------------------------------------
-   HOMEPAGE : Section 1: Mes projets
+   HOMEPAGE : Section 1: Introduction: Designer d'espace
+-------------------------------------------------- */
+#introduction p {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  max-width: 404px;
+  max-height: 192px;
+  overflow-wrap: break-word;
+  line-height: 1;
+  margin: 0 0 16px 0;
+}
+
+#introduction img {
+  width: 474px;
+  height: 355px;
+}
+
+#introduction {
+  display: flex;
+  align-items: center; 
+  justify-content: center;    
+  padding: 20px;
+  gap: 20px;
+}
+
+/* -------------------------------------------------
+   HOMEPAGE : Section 2: Mes projets
 -------------------------------------------------- */
 
 /* titre de la section */
-#portfolio h2 {
-	text-align: center;
-	margin-bottom: 1em;
+.portfolio-title {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 60px;
+	margin-top: 120px;
+	gap: 10px;
+}
+
+/* edit button when the user is logged in */
+#edit-projects {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+body.logged-in #edit-projects {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
 }
 
 /* filtres des catégories: boutons */
@@ -183,6 +261,11 @@ footer ul {
   justify-content: center;
   gap: 10px;
   margin-bottom: 50px;
+}
+
+/* Hide filters when the user is logged in */
+body.logged-in .filters {
+  display: none;
 }
 
 .filter-btn {
@@ -220,13 +303,15 @@ footer ul {
 }
 
 /* -------------------------------------------------
-   HOMEPAGE: Section 2: Contact
+   HOMEPAGE: Section 3: Contact
 -------------------------------------------------- */
 
 #contact {
-	width: 50%;
+width: 50%;
 margin: auto;
+margin-top: 60px;
 }
+
 #contact > * {
 	text-align: center;
 
