@@ -352,6 +352,122 @@ input[type="submit"]{
 }
 
 
+/* ========================= */
+/* MODALE                   */
+/* ========================= */
+
+/* fond sombre de la modale */
+.modal {
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.3); /* opacity 30% */
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* contenu de la modale (boite blanche) */
+.modal-content {
+  background:#FFFFFF;
+  width: 630px;
+  height: 688px;
+  padding:40px;
+  border-radius: 10px;
+  position: relative;
+}
+
+#titlemodal {
+  font-family: 'Work Sans';
+  font-weight: 400;
+  font-size: 26px;
+  color: #000000;
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* bouton fermer (croix) */
+.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* galerie des photos dans la modale */
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 30px 10px; /* 30px entre les lignes, 10px entre les colonnes */
+  padding: 50px 100px;   /* 40px en haut et bas, 100px à gauche et droite  */
+  box-sizing: border-box; /* pour que le padding ne dépasse pas la largeur de la modale */
+}
+
+.gallery-container figure {
+  position: relative;
+  margin: 0;
+}
+
+.gallery-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* bouton de suppression (poubelle) dans chaque photo */
+.gallery-container i {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: black;
+  color: white;
+  font-size: 12px;
+  padding: 4px;
+  border-radius: 2px;
+}
+
+/* ligne de séparation entre la galerie et le bouton "ajouter une photo" */
+.separator {
+  margin: 20px auto;
+  border: none;
+  width: 420px;
+  border-top: 1px solid #B3B3B3;
+}
+
+/* bouton "ajouter une photo" */
+#add-photo {
+  display: block;
+  width: 237px;
+  height: 36px;
+  margin: 60px auto 0;
+  background: #1D6154;
+  color: white;
+  font-family: "Syne";
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  border-radius: 60px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* bouton "retour" (flèche) */
+.back {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 21px;
+  cursor: pointer;
+}
+
+/* classe pour cacher la modale */
+.hidden {
+  display:none;
+}
 
 /* -------------------------------------------------
    LOGIN PAGE

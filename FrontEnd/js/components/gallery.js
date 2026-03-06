@@ -1,4 +1,35 @@
-/* --ce fichier affiche les données de l'API dans le HTML-- */
+/* --ce fichier affiche les données de l'API dans le portfolio (index.html)-- */
+
+import { getWorks, getCategories } from "../api/api.js";
+
+export async function initGallery() {
+  console.log("initGallery appelé"); // <--- test
+  let allWorks = [];
+
+  try {
+    allWorks = await getWorks();
+    const categories = await getCategories();
+
+    displayWorks(allWorks);
+    displayCategories(categories, filterWorks);
+
+    return allWorks;
+
+  } catch (error) {
+    console.error("Erreur chargement galerie :", error);
+  }
+
+  function filterWorks(categoryId) {
+    if (categoryId === null) {
+      displayWorks(allWorks);
+    } else {
+      const filtered = allWorks.filter(
+        work => work.categoryId === categoryId
+      );
+      displayWorks(filtered);
+    }
+  }
+}
 
 // Affiche les travaux dans la galerie
 export function displayWorks(works) {

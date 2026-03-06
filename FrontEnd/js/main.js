@@ -1,37 +1,17 @@
 /* --ce fichier coordonne tout-- */
 
-
-//PROJETS, FILTRES CATEGORIES et EDIT MODE HOMEPAGE
-import { getWorks, getCategories } from "./api/api.js";
-import { displayWorks, displayCategories } from "./components/gallery.js";
+import { initGallery } from "./components/gallery.js";
 import { initHomepage } from "./pages/index.js";
-initHomepage();
+import { initModal } from "./components/modal.js";
 
-let allWorks = [];
+console.log("main.js chargé");
 
-async function init() {
-  try {
-    allWorks = await getWorks();
-    const categories = await getCategories();
+document.addEventListener("DOMContentLoaded", async () => {
 
-    displayWorks(allWorks);
+  initHomepage();
 
-    displayCategories(categories, filterWorks);
+  const works = await initGallery(); // 👈 récupère les données
 
-  } catch (error) {
-    console.error("Erreur d'initialisation :", error);
-  }
-}
+  initModal(works); // 👈 envoie les works à la modale
 
-function filterWorks(categoryId) {
-  if (categoryId === null) {
-    displayWorks(allWorks);
-  } else {
-    const filtered = allWorks.filter(
-      work => work.categoryId === categoryId
-    );
-    displayWorks(filtered);
-  }
-}
-
-init();
+});
