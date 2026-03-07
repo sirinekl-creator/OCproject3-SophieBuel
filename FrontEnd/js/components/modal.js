@@ -28,6 +28,9 @@ export function initModal(works) {
   const galleryView = document.querySelector(".gallery-container");
   const formView = document.getElementById("modal-form");
   const backBtn = document.querySelector(".back");
+  const titleModal = document.getElementById("titlemodal");
+  const addPhoto = document.getElementById("add-photo");
+  const separatorfirstzone = document.querySelector(".separator-firstzone");
 
   if (!modal) return;
 
@@ -59,6 +62,23 @@ export function initModal(works) {
       galleryView.classList.add("hidden");
       formView.classList.remove("hidden");
       backBtn.classList.remove("hidden");
+  
+
+      // Cacher le titre de la galerie
+      if (titleModal) {
+        titleModal.style.display = "none";
+      }
+
+      // Cacher le bouton "Ajouter une photo"
+      if (addPhoto) {
+        addPhoto.style.display = "none";
+      }
+
+      // Cacher la ligne de séparation de la zone 1
+      if (separatorfirstzone) {
+        separatorfirstzone.style.display = "none";
+      }
+
     });
   }
 
@@ -68,6 +88,12 @@ export function initModal(works) {
       formView.classList.add("hidden");
       galleryView.classList.remove("hidden");
       backBtn.classList.add("hidden");
+
+// Réafficher le titre de la galerie
+      if (titleModal) {
+        titleModal.style.display = "block";
+      }
+
     });
   }
 

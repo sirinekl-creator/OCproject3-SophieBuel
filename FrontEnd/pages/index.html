@@ -104,7 +104,7 @@
         <h2 id="titlemodal">Galerie photo</h2>
         <div class="gallery-container"></div>
 
-<hr class="separator">
+<hr class="separator-firstzone">
 
         <button id="add-photo">Ajouter une photo</button>
     </div>
@@ -112,13 +112,34 @@
     <!-- Form: allows the addition of works -->
     <div id="modal-form" class="hidden">
         <h2>Ajout photo</h2>
+        <form id="add-photo-form">
+			<div class="upload-container">
+            <input type="file" id="fileInput" name="image" accept=".jpeg, .jpg, .png" hidden>
+			<label for="fileInput" class="upload-label">
+						<div class="label-content">
+                        	<div id="preview" class="preview">
+                            	<i class="fa-regular fa-image"></i>
+                        	</div>
 
-        <form>
-            <input type="file">
-            <input type="text" placeholder="Titre">
-            <select></select>
+                        	<span class="upload-btn">+ Ajouter photo</span>
+                        	<p class="upload-info">jpg, png : 4mo max</p>
+						</div>
+                    </label>
+                </div>
 
-            <button type="submit">Valider</button>
+                <div class="form-fields">
+                    <label for="title">Titre</label>
+                    <input type="text" id="title" name="title">
+                    <label for="category">Catégorie</label>
+                    <select id="category" name="category"></select>
+                </div>
+
+				<hr class="separator-secondzone">
+
+                    <button id="submitAddPhoto" type="submit" disabled>
+                        Valider
+                    </button>
+                </div>
         </form>
     </div>
 

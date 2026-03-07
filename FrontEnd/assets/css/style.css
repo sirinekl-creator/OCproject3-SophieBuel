@@ -398,12 +398,14 @@ input[type="submit"]{
   cursor: pointer;
 }
 
+/* MODALE ZONE 1 GALLERY */
+
 /* galerie des photos dans la modale */
 .gallery-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 30px 10px; /* 30px entre les lignes, 10px entre les colonnes */
-  padding: 50px 100px;   /* 40px en haut et bas, 100px à gauche et droite  */
+  padding: 50px 100px;   /* 50px en haut et bas, 100px à gauche et droite  */
   box-sizing: border-box; /* pour que le padding ne dépasse pas la largeur de la modale */
 }
 
@@ -431,7 +433,7 @@ input[type="submit"]{
 }
 
 /* ligne de séparation entre la galerie et le bouton "ajouter une photo" */
-.separator {
+.separator-firstzone {
   margin: 20px auto;
   border: none;
   width: 420px;
@@ -463,6 +465,110 @@ input[type="submit"]{
   font-size: 21px;
   cursor: pointer;
 }
+
+/*MODALE ZONE 2 FORMULAIRE D'AJOUT DE PHOTO*/
+
+#modal-form h2 {
+  font-family: 'Work Sans';
+  font-weight: 400;
+  font-size: 26px;
+  color: #000000;
+  text-align: center;
+  margin-top: 30px;
+  background-color: #FFFFFF;
+}
+
+#add-photo-form {
+  padding: 50px 100px;
+}
+
+.upload-container {
+  background-color: #E8F1F6;
+  border-radius: 3px;
+  padding: 25px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.upload-label {
+  display: block;
+  cursor: pointer;
+}
+
+.label-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 3px;
+  gap: 10px;
+}
+
+.preview i {
+  font-size: 76px;
+  color: #B9C5CC;
+}
+
+.upload-btn {
+	display: flex;            
+  justify-content: center;  
+  align-items: center;
+width: 173px;
+height: 36px;
+  background-color: #CBD6DC;
+  color: #306685;
+  border-radius: 50px;
+  font-family: "Work Sans";
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.upload-info {
+  font-size: 10px;
+  font-family: "Work Sans";
+  font-weight: 400;
+  color: #444;
+}
+
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-fields input,
+.form-fields select {
+  height: 51px;
+  border: none;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.09);
+  padding-left: 10px;
+}
+
+.form-fields #category {
+  margin-bottom: 30px;
+}
+
+.separator-secondzone {
+  margin: 20px auto;
+  border: none;
+  width: 420px;
+  border-top: 1px solid #B3B3B3;
+}
+
+#submitAddPhoto {
+  width: 237px;
+  height: 36px;
+  border-radius: 60px;
+  border: none;
+  background-color: #A7A7A7;
+  color: white;
+  margin: auto;
+  display: block;
+  margin-top: 40px;
+  font-family: "Syne";
+  font-size: 14px;
+  font-weight: 700;
+}
+
 
 /* classe pour cacher la modale */
 .hidden {
