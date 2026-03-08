@@ -2,9 +2,10 @@
 
 import { getWorks, getCategories } from "../api/api.js";
 
+export let allWorks = []; // Variable globale pour stocker les travaux récupérés de l'API
+
 export async function initGallery() {
   console.log("initGallery appelé"); // <--- test
-  let allWorks = [];
 
   try {
     allWorks = await getWorks();
@@ -38,6 +39,8 @@ export function displayWorks(works) {
 
   works.forEach(work => {
     const figure = document.createElement("figure");
+
+    figure.dataset.id = work.id; // Ajouter un attribut data-id pour permettre de réellement supprimer la photo avec l'API
 
     figure.innerHTML = `
       <img src="${work.imageUrl}" alt="${work.title}">
@@ -85,4 +88,9 @@ export function displayCategories(categories, onFilter) {
     filtersContainer.appendChild(button);
   });
 
+}
+
+export function removeWorkById(id) {
+  allWorks = allWorks.filter(work => work.id !== id);
+  displayWorks(allWorks);
 }

@@ -1,3 +1,5 @@
+
+// Fonction pour afficher la gallerie dans la modale zone 1 avec l'icone de suppression (poubelle)
 function displayModalGallery(works) {
   const galleryView = document.querySelector(".gallery-container");
   galleryView.innerHTML = "";
@@ -5,6 +7,7 @@ function displayModalGallery(works) {
   works.forEach(work => {
 
     const figure = document.createElement("figure");
+    figure.dataset.id = work.id; // Ajouter un attribut data-id pour permettre de réellement supprimer la photo avec l'API
 
     const img = document.createElement("img");
     img.src = work.imageUrl;
@@ -12,12 +15,45 @@ function displayModalGallery(works) {
     const trash = document.createElement("i");
     trash.classList.add("fa-solid", "fa-trash-can");
 
+    trash.addEventListener("click", () => {
+  deleteWork(work.id, figure);
+});
+
     figure.appendChild(img);
     figure.appendChild(trash);
 
     galleryView.appendChild(figure);
   });
 }
+
+// Fonction pour supprimer un projet via l'API
+import { removeWorkById } from "./gallery.js";
+
+async function deleteWork(id, figure) {
+console.log("suppression", id);
+  const token = localStorage.getItem("token");
+
+  const response = await fetch(`http://localhost:5678/api/works/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Authorization": `Bearer ${token}`,
+      "Accept": "application/json"
+    }
+  });
+
+  if (response.ok) {
+
+    // supprimer dans la modale
+    figure.remove();
+
+    // supprimer dans la galerie principale
+removeWorkById(id);
+
+  } else {
+    console.log("Erreur lors de la suppression");
+  }
+}
+
 
 export function initModal(works) {
 
