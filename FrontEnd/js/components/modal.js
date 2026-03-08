@@ -82,6 +82,7 @@ export function initModal(works) {
     });
   }
 
+  // Zone 1 modale qui réapparait lorsqu'on clique sur la flèche de retour
   // Back to gallery (arrow)
   if (backBtn) {
     backBtn.addEventListener("click", () => {
@@ -93,6 +94,16 @@ export function initModal(works) {
       if (titleModal) {
         titleModal.style.display = "block";
       }
+//Réafficher le séparateur de la zone 1
+      if (separatorfirstzone) {
+        separatorfirstzone.style.display = "block";
+      }
+
+// Réafficher le bouton "Ajouter une photo"
+      if (addPhoto) {
+        addPhoto.style.display = "block";
+      }
+
 
     });
   }
