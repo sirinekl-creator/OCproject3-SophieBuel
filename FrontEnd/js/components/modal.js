@@ -68,6 +68,127 @@ export function initModal(works) {
   const addPhoto = document.getElementById("add-photo");
   const separatorfirstzone = document.querySelector(".separator-firstzone");
 
+// Permet d'ajouter des photos via l'API dans la modale zone 2 et les afficher sur la homepage
+const fileInput = document.getElementById("fileInput");
+const preview = document.getElementById("preview");
+const titleInput = document.getElementById("title");
+const categorySelect = document.getElementById("category");
+const form = document.getElementById("add-photo-form");
+const submitBtn = document.getElementById("submitAddPhoto");
+
+const uploadBtn = document.querySelector(".upload-btn");
+const uploadInfo = document.querySelector(".upload-info");
+
+async function loadCategories() {
+  try {
+    const response = await fetch("http://localhost:5678/api/categories");
+    const categories = await response.json();
+
+    categorySelect.innerHTML = "";
+
+    categories.forEach(cat => {
+      const option = document.createElement("option");
+      option.value = cat.id;
+      option.textContent = cat.name;
+      categorySelect.appendChild(option);
+    });
+
+  } catch (error) {
+    console.log("Erreur chargement catégories", error);
+  }
+}
+
+loadCategories();
+
+if (fileInput) {
+  fileInput.addEventListener("change", () => {
+    const file = fileInput.files[0];
+
+    if (!file) return;
+      const reader = new FileReader();
+
+      reader.onload = function (e) {
+        preview.innerHTML = `<img src="${e.target.result}" style="width:100%; height:100%; object-fit:cover;">`;
+
+      //cacher les éléments upload lorsqu'une image est sélectionnée
+      uploadBtn.style.display = "none";
+      uploadInfo.style.display = "none";
+      };
+
+      reader.readAsDataURL(file);
+
+    checkForm();
+  });
+}
+
+function checkForm() {
+  if (
+    fileInput.files.length &&
+    titleInput.value.trim() !== "" &&
+    categorySelect.value !== ""
+  ) {
+    submitBtn.disabled = false;
+  } else {
+    submitBtn.disabled = true;
+  }
+}
+
+titleInput.addEventListener("input", checkForm);
+categorySelect.addEventListener("change", checkForm);
+
+if (form) {
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const token = localStorage.getItem("token");
+
+    const formData = new FormData();
+    formData.append("image", fileInput.files[0]);
+    formData.append("title", titleInput.value.trim());
+    formData.append("category", categorySelect.value);
+
+    try {
+
+      const response = await fetch("http://localhost:5678/api/works", {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${token}`
+        },
+        body: formData
+      });
+
+      if (!response.ok) {
+        throw new Error("Erreur ajout projet");
+      }
+
+      const newWork = await response.json();
+
+      console.log("Projet ajouté :", newWork);
+
+      // reset formulaire
+      form.reset();
+      preview.innerHTML = `<i class="fa-regular fa-image"></i>`;
+      submitBtn.disabled = true;
+
+      uploadBtn.style.display = "block";
+uploadInfo.style.display = "block";
+
+      // fermer le formulaire
+      formView.classList.add("hidden");
+      galleryView.classList.remove("hidden");
+
+      // recharger la page pour afficher la nouvelle image
+      location.reload();
+
+    } catch (error) {
+      console.log(error);
+    }
+  });
+}
+
+
+//Autres fonctions de la modale (ouvrir, fermer, basculer entre galerie et formulaire)
+
   if (!modal) return;
 
   // Open modal (edit button)

@@ -374,10 +374,11 @@ input[type="submit"]{
 .modal-content {
   background:#FFFFFF;
   width: 630px;
-  height: 688px;
-  padding:40px;
+  height: 670px;
+  padding: 50px 100px;
   border-radius: 10px;
   position: relative;
+  box-sizing: border-box;
 }
 
 #titlemodal {
@@ -386,7 +387,7 @@ input[type="submit"]{
   font-size: 26px;
   color: #000000;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 /* bouton fermer (croix) */
@@ -405,8 +406,9 @@ input[type="submit"]{
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 30px 10px; /* 30px entre les lignes, 10px entre les colonnes */
-  padding: 50px 100px;   /* 50px en haut et bas, 100px à gauche et droite  */
   box-sizing: border-box; /* pour que le padding ne dépasse pas la largeur de la modale */
+  margin-top: 50px;
+  margin-bottom: 70px;
 }
 
 .gallery-container figure {
@@ -445,7 +447,7 @@ input[type="submit"]{
   display: block;
   width: 237px;
   height: 36px;
-  margin: 60px auto 0;
+  margin: 40px auto 0;
   background: #1D6154;
   color: white;
   font-family: "Syne";
@@ -468,31 +470,38 @@ input[type="submit"]{
 
 /*MODALE ZONE 2 FORMULAIRE D'AJOUT DE PHOTO*/
 
+.modal-form {
+  padding: 60px;
+}
+
 #modal-form h2 {
   font-family: 'Work Sans';
   font-weight: 400;
   font-size: 26px;
   color: #000000;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 20px;
   background-color: #FFFFFF;
-}
-
-#add-photo-form {
-  padding: 50px 100px;
-}
-
-.upload-container {
-  background-color: #E8F1F6;
-  border-radius: 3px;
-  padding: 25px;
-  text-align: center;
   margin-bottom: 30px;
 }
 
+.upload-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #E8F1F6;
+  border-radius: 3px;
+  padding: 15px 0px 12px;
+  margin-bottom: 30px;
+  width: 100%;
+  max-height: 169px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
 .upload-label {
-  display: block;
   cursor: pointer;
+  width: 100%;
 }
 
 .label-content {
@@ -506,6 +515,30 @@ input[type="submit"]{
 .preview i {
   font-size: 76px;
   color: #B9C5CC;
+}
+
+.preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  max-height: 193px;
+    max-width: 129px;
+}
+
+.label-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.preview img {
+  height: 193px;
+width: 129px;
+object-fit: contain;
+  display: block;
 }
 
 .upload-btn {
@@ -535,12 +568,21 @@ height: 36px;
   gap: 15px;
 }
 
+.form-fields label {
+  font-family: "Work Sans";
+  font-weight: 500;
+  font-size: 14px;
+}
+
 .form-fields input,
 .form-fields select {
   height: 51px;
   border: none;
   box-shadow: 0px 4px 10px rgba(0,0,0,0.09);
   padding-left: 10px;
+  font-family: "Work Sans";
+  font-weight: 400;
+  font-size: 14px;
 }
 
 .form-fields #category {
