@@ -75,6 +75,7 @@ const titleInput = document.getElementById("title");
 const categorySelect = document.getElementById("category");
 const form = document.getElementById("add-photo-form");
 const submitBtn = document.getElementById("submitAddPhoto");
+const errorMessage = document.getElementById("formError");
 
 const uploadBtn = document.querySelector(".upload-btn");
 const uploadInfo = document.querySelector(".upload-info");
@@ -140,6 +141,14 @@ if (form) {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
+    // Vérification formulaire
+  if (!fileInput.files.length || titleInput.value.trim() === "" || categorySelect.value === "") {
+    errorMessage.textContent = "Veuillez remplir tous les champs.";
+    return;
+  }
+
+  errorMessage.textContent = "";
+
     const token = localStorage.getItem("token");
 
     const formData = new FormData();
@@ -181,6 +190,7 @@ uploadInfo.style.display = "block";
       location.reload();
 
     } catch (error) {
+      errorMessage.textContent = "Erreur lors de l'ajout du projet.";
       console.log(error);
     }
   });

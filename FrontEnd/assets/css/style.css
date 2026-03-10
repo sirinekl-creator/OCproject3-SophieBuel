@@ -66,6 +66,7 @@ header {
 	display: flex;
 	justify-content: space-between;
 	margin: 50px 0;
+  margin-bottom: 100px;
 }
 
 h1{
@@ -95,7 +96,6 @@ header a {
 header img {
 	width: 22px;
 	height: 22px;
-  font-weight: 600;
 }
 
 /* login en gras lorsqu'on est sur la page de connexion */
@@ -147,12 +147,6 @@ footer ul {
 	display: flex;
 	justify-content: flex-end;
 	margin: 2em;
-}
-
-footer nav ul {
-  display: flex;
-  justify-content: flex-end;
-  margin: 2em;
 }
 
 /* -------------------------------------------------
@@ -655,9 +649,22 @@ height: 36px;
    LOGIN PAGE: main section: Log In
 -------------------------------------------------- */
 
+/* pour que le footer soit collé en bas */
+.loginbody {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.footerlogin {
+  margin-top: auto;
+}
+
+/* container du formulaire de login */
 .login-container {
 	width: 400px;
 	margin: 100px auto;
+  margin-top: 0;
 	text-align: center;
 }
 
