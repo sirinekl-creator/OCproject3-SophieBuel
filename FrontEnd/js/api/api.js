@@ -1,16 +1,17 @@
-
 /* --ce fichier récupère les données de l'API (fetch)-- */
+
+const API_URL = "http://localhost:5678/api";
 
 /* -------------------------------------------------
    GET Works ("Mes projets")
 -------------------------------------------------- */
 
 export async function getWorks() {
-  const response = await fetch("http://localhost:5678/api/works");
+  const response = await fetch(`${API_URL}/works`);
   if (!response.ok) {
     throw new Error("Erreur API");
   }
-  return await response.json();
+  return response.json();
 }
 
 /* -------------------------------------------------
@@ -18,9 +19,9 @@ export async function getWorks() {
 -------------------------------------------------- */
 
 export async function getCategories() {
-  const response = await fetch("http://localhost:5678/api/categories");
+  const response = await fetch(`${API_URL}/categories`);
   if (!response.ok) {
     throw new Error("Erreur API catégories");
   }
-  return await response.json();
+  return response.json();
 }

@@ -1,42 +1,45 @@
-const apiUrlLogin = "http://localhost:5678/api/users/login";
+const API_URL_LOGIN = "http://localhost:5678/api/users/login";
 const form = document.getElementById("loginForm");
 const errorMsg = document.getElementById("loginError");
 
+const emailInput = document.querySelector("#email");
+const passwordInput = document.querySelector("#password");
+
 // -------------------------------------------------
-// Redirect to the home page when the connection is confirmed
-// & display an error message when the user information/password is incorrect.
+// Login: redirection si succès, affichage erreur si échec
 // -------------------------------------------------
-form.addEventListener("submit", async function (event) {
-    event.preventDefault();
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  errorMsg.style.display = "none"; // reset error
 
-    const email = document.querySelector("#email").value;
-    const password = document.querySelector("#password").value;
+  const email = emailInput.value.trim();
+  const password = passwordInput.value;
 
-    try {
-        const response = await fetch(apiUrlLogin, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                email: email,
-                password: password
-            })
-        });
+  if (!email || !password) {
+    errorMsg.textContent = "Veuillez remplir tous les champs.";
+    errorMsg.style.display = "block";
+    return;
+  }
 
-        if (!response.ok) {
-            throw new Error("Erreur dans l’identifiant ou le mot de passe");
-        }
+  try {
+    const response = await fetch(API_URL_LOGIN, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    });
 
-        const data = await response.json();
-
-        // Stocker le token
-        localStorage.setItem("token", data.token);
-
-        // Redirection
-        window.location.href = "../pages/index.html";
-
-    } catch (error) {
-        document.querySelector(".login-error").style.display = "block";
+    if (!response.ok) {
+      throw new Error("Identifiant ou mot de passe incorrect.");
     }
+
+    const data = await response.json();
+    localStorage.setItem("token", data.token);
+
+    // Redirection vers la page d’accueil
+    window.location.href = "../pages/index.html";
+  } catch (error) {
+    errorMsg.textContent = error.message;
+    errorMsg.style.display = "block";
+    passwordInput.value = ""; // vider le mot de passe
+  }
 });

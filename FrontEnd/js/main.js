@@ -1,17 +1,21 @@
-/* --ce fichier coordonne tout-- */
-
 import { initGallery } from "./components/gallery.js";
 import { initHomepage } from "./pages/index.js";
 import { initModal } from "./components/modal.js";
 
-console.log("main.js chargé");
-
+/* -- Ce fichier coordonne le chargement de la page -- */
 document.addEventListener("DOMContentLoaded", async () => {
-
+  // Initialisation de la page d'accueil
   initHomepage();
 
-  const works = await initGallery(); // 👈 récupère les données
+  // Chargement des travaux pour la galerie
+  let works = [];
+  try {
+    works = await initGallery();
+  } catch (error) {
+    console.error("Erreur lors du chargement de la galerie :", error);
+    // Optionnel : afficher un message à l'utilisateur
+  }
 
-  initModal(works); // 👈 envoie les works à la modale
-
+  // Initialisation de la modale avec les travaux
+  initModal(works);
 });

@@ -1,12 +1,13 @@
 /* --ce fichier affiche les données de l'API dans le portfolio (index.html)-- */
 
+/* importe les fonctions depuis le fichier api.js */
 import { getWorks, getCategories } from "../api/api.js";
 
-export let allWorks = []; // Variable globale pour stocker les travaux récupérés de l'API
+/* variable globale pour stocker les travaux récupérés de l'API et les exporter à d'autres fichiers js */
+export let allWorks = [];
 
+/* Fonction principale qui initialise la galerie (récupère les projets, les catégories et affiche la galerie et les filtres) */
 export async function initGallery() {
-  console.log("initGallery appelé"); // <--- test
-
   try {
     allWorks = await getWorks();
     const categories = await getCategories();
@@ -15,7 +16,6 @@ export async function initGallery() {
     displayCategories(categories, filterWorks);
 
     return allWorks;
-
   } catch (error) {
     console.error("Erreur chargement galerie :", error);
   }
@@ -25,7 +25,7 @@ export async function initGallery() {
       displayWorks(allWorks);
     } else {
       const filtered = allWorks.filter(
-        work => work.categoryId === categoryId
+        (work) => work.categoryId === categoryId,
       );
       displayWorks(filtered);
     }
@@ -37,15 +37,21 @@ export function displayWorks(works) {
   const gallery = document.querySelector(".gallery");
   gallery.innerHTML = "";
 
-  works.forEach(work => {
+  works.forEach((work) => {
     const figure = document.createElement("figure");
 
     figure.dataset.id = work.id; // Ajouter un attribut data-id pour permettre de réellement supprimer la photo avec l'API
 
-    figure.innerHTML = `
-      <img src="${work.imageUrl}" alt="${work.title}">
-      <figcaption>${work.title}</figcaption>
-    `;
+    // ajout d'image dans la galerie principale (index.html) */
+    const img = document.createElement("img");
+    img.src = work.imageUrl;
+    img.alt = work.title;
+
+    const caption = document.createElement("figcaption");
+    caption.textContent = work.title;
+
+    figure.appendChild(img);
+    figure.appendChild(caption);
 
     gallery.appendChild(figure);
   });
@@ -56,9 +62,9 @@ export function displayCategories(categories, onFilter) {
   const filtersContainer = document.querySelector(".filters");
   filtersContainer.innerHTML = "";
 
-// Fonction pour gérer le bouton actif
+  // Fonction pour gérer le bouton actif
   function setActiveButton(activeBtn) {
-    filtersContainer.querySelectorAll("button").forEach(btn => {
+    filtersContainer.querySelectorAll("button").forEach((btn) => {
       btn.classList.remove("active"); // Supprime l'ancienne classe active
     });
     activeBtn.classList.add("active"); // Ajoute la classe active au bouton cliqué
@@ -73,9 +79,9 @@ export function displayCategories(categories, onFilter) {
     onFilter(null);
   });
   filtersContainer.appendChild(allBtn);
-  
+
   //Boutons pour chaque catégorie
-  categories.forEach(category => {
+  categories.forEach((category) => {
     const button = document.createElement("button");
     button.textContent = category.name;
     button.classList.add("filter-btn");
@@ -87,10 +93,10 @@ export function displayCategories(categories, onFilter) {
 
     filtersContainer.appendChild(button);
   });
-
 }
 
+// Fonction pour supprimer un projet de la galerie principale après suppression dans la modale
 export function removeWorkById(id) {
-  allWorks = allWorks.filter(work => work.id !== id);
+  allWorks = allWorks.filter((work) => work.id !== id);
   displayWorks(allWorks);
 }

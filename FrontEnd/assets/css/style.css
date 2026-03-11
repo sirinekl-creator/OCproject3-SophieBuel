@@ -3,48 +3,129 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
-ol, ul {
-	list-style: none;
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 /** end reset css**/
 
@@ -53,54 +134,54 @@ table {
 -------------------------------------------------- */
 
 body {
-	max-width: 1140px;
-	margin:auto;
-	font-family: 'Work Sans' ;
-	font-size: 14px;
-	background-color: #FFFEF8;
+  max-width: 1140px;
+  margin: auto;
+  font-family: "Work Sans";
+  font-size: 14px;
+  background-color: #fffef8;
 }
 
 /* Header commun à la homepage et à la page de login */
 
 header {
-	display: flex;
-	justify-content: space-between;
-	margin: 50px 0;
+  display: flex;
+  justify-content: space-between;
+  margin: 50px 0;
   margin-bottom: 100px;
 }
 
-h1{
-	display: flex;
-	flex-direction: column;
-	font-family: 'Syne';
-	font-size: 22px;
-	font-weight: 800;
-	color: #B1663C;
+h1 {
+  display: flex;
+  flex-direction: column;
+  font-family: "Syne";
+  font-size: 22px;
+  font-weight: 800;
+  color: #b1663c;
   gap: 10px;
 }
 
 h1 > span {
-	font-family: 'Work Sans';
-	font-size:10px;
+  font-family: "Work Sans";
+  font-size: 10px;
   font-weight: 400;
-	letter-spacing: 0.1em;
+  letter-spacing: 0.1em;
 }
 
 header a {
-	text-decoration: none;
-	color: black;
-	font-family: "Work Sans", sans-serif;
-	font-weight: 400;
+  text-decoration: none;
+  color: black;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 400;
 }
 
 header img {
-	width: 22px;
-	height: 22px;
+  width: 22px;
+  height: 22px;
 }
 
 /* login en gras lorsqu'on est sur la page de connexion */
 nav .active a {
-	font-weight: 600;
+  font-weight: 600;
 }
 
 /* Shift the header when edit mode is active */
@@ -111,42 +192,42 @@ body.logged-in header {
 /* Eléments communs au header & Footer */
 
 nav ul {
-	display: flex;
-	align-items: center;
-	list-style-type: none;
+  display: flex;
+  align-items: center;
+  list-style-type: none;
   gap: 20px;
 }
 
 nav li {
-	padding: 0 10px;
-	font-size: 1.2em;
+  padding: 0 10px;
+  font-size: 1.2em;
 }
 
 li:hover {
-	color: #B1663C;
+  color: #b1663c;
 }
 
 /* contenu principal commun */
 
-h2{
-	font-family: 'Syne';
-	font-weight: 700;
-	font-size: 30px;
-	color: #1D6154
+h2 {
+  font-family: "Syne";
+  font-weight: 700;
+  font-size: 30px;
+  color: #1d6154;
 }
 
 /* Footer commun à la homepage et à la page de login */
 
 footer {
-	font-family: "Work Sans", sans-serif;
-	font-weight: 300;
-	font-size: 14px;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 300;
+  font-size: 14px;
 }
 
 footer ul {
-	display: flex;
-	justify-content: flex-end;
-	margin: 2em;
+  display: flex;
+  justify-content: flex-end;
+  margin: 2em;
 }
 
 /* -------------------------------------------------
@@ -182,7 +263,7 @@ main {
 }
 
 section {
-	margin: 50px 0
+  margin: 50px 0;
 }
 
 /* -------------------------------------------------
@@ -190,31 +271,31 @@ section {
 -------------------------------------------------- */
 
 #introduction {
-	display: flex;
-	align-items: center;
+  display: flex;
+  align-items: center;
   gap: 60px;
 }
 
 #introduction figure {
-	flex: 1
+  flex: 1;
 }
 #introduction img {
-	display: block;
-	margin: 0;
-	width: 80%;
+  display: block;
+  margin: 0;
+  width: 80%;
   width: 474px;
   height: 355px;
 }
 
 #introduction article {
-	flex: 1
+  flex: 1;
 }
 #introduction h2 {
-	margin-bottom: 1em;
+  margin-bottom: 1em;
 }
 
 #introduction p {
-	margin-bottom: 0.5em;
+  margin-bottom: 0.5em;
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -231,15 +312,15 @@ section {
 
 /* titre de la section */
 .portfolio-title {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 120px 0 80px 0;
-	gap: 10px;
+  gap: 10px;
 }
 
 #portfolio h2 {
-	margin: 0;
+  margin: 0;
 }
 
 /* edit button when the user is logged in */
@@ -273,37 +354,37 @@ body.logged-in .filters {
 }
 
 .filter-btn {
-  border: 1px solid #1D6154;
+  border: 1px solid #1d6154;
   background-color: white;
-  color: #1D6154;
+  color: #1d6154;
   padding: 10px 20px;
   border-radius: 60px;
   cursor: pointer;
-  font-family: 'Syne';
+  font-family: "Syne";
 }
 
 .filter-btn:hover {
-  background-color: #1D6154;
+  background-color: #1d6154;
   color: white;
 }
 
 .filter-btn.active {
-  background-color: #1D6154;
+  background-color: #1d6154;
   color: white;
 }
 
 /* galerie des projets */
 .gallery {
-	width: 100%;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-column-gap: 20px;
-	grid-row-gap: 20px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
   margin: 50px 0;
 }
 
 .gallery img {
-	width: 100%;
+  width: 100%;
   height: 407px;
   object-fit: cover;
 }
@@ -317,50 +398,48 @@ body.logged-in .filters {
 -------------------------------------------------- */
 
 #contact {
-width: 50%;
-margin: auto;
-margin-top: 60px;
+  width: 50%;
+  margin: auto;
+  margin-top: 60px;
 }
 
 #contact > * {
-	text-align: center;
-
+  text-align: center;
 }
-#contact h2{
-	margin-bottom: 20px;
+#contact h2 {
+  margin-bottom: 20px;
 }
 #contact form {
-	text-align: left;
-	margin-top:30px;
-	display: flex;
-	flex-direction: column;
+  text-align: left;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
 }
 
 #contact input {
-	height: 50px;
-	font-size: 1.2em;
-	border: none;
-	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  height: 50px;
+  font-size: 1.2em;
+  border: none;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 #contact label {
-	margin: 2em 0 1em 0;
+  margin: 2em 0 1em 0;
 }
 #contact textarea {
-	border: none;
-	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  border: none;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-input[type="submit"]{
-	font-family: 'Syne';
-	font-weight: 700;
-	color: white;
-	background-color: #1D6154;
-	margin : 2em auto ;
-	width: 180px;
-	text-align: center;
-	border-radius: 60px ;
+input[type="submit"] {
+  font-family: "Syne";
+  font-weight: 700;
+  color: white;
+  background-color: #1d6154;
+  margin: 2em auto;
+  width: 180px;
+  text-align: center;
+  border-radius: 60px;
 }
-
 
 /* ========================= */
 /* MODALE                   */
@@ -369,20 +448,20 @@ input[type="submit"]{
 /* fond sombre de la modale */
 .modal {
   position: fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background: rgba(0,0,0,0.3); /* opacity 30% */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* opacity 30% */
 
-  display:flex;
-  justify-content:center;
-  align-items:center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* contenu de la modale (boite blanche) */
 .modal-content {
-  background:#FFFFFF;
+  background: #ffffff;
   width: 630px;
   height: 670px;
   padding: 50px 100px;
@@ -392,7 +471,7 @@ input[type="submit"]{
 }
 
 #titlemodal {
-  font-family: 'Work Sans';
+  font-family: "Work Sans";
   font-weight: 400;
   font-size: 26px;
   color: #000000;
@@ -424,13 +503,13 @@ input[type="submit"]{
 .gallery-container figure {
   position: relative;
   margin: 0;
-  width: 76.86280059814453px;
-  height: 102.56774139404297px;
+  width: 77px;
+  height: 103px;
 }
 
 .gallery-container img {
-  width: 76.86280059814453px;
-  height: 102.56774139404297px;
+  width: 77px;
+  height: 103px;
   display: block;
 }
 
@@ -451,7 +530,7 @@ input[type="submit"]{
   margin: 20px auto;
   border: none;
   width: 420px;
-  border-top: 1px solid #B3B3B3;
+  border-top: 1px solid #b3b3b3;
 }
 
 /* bouton "ajouter une photo" */
@@ -460,7 +539,7 @@ input[type="submit"]{
   width: 237px;
   height: 36px;
   margin: 40px auto 0;
-  background: #1D6154;
+  background: #1d6154;
   color: white;
   font-family: "Syne";
   font-size: 14px;
@@ -487,13 +566,13 @@ input[type="submit"]{
 }
 
 #modal-form h2 {
-  font-family: 'Work Sans';
+  font-family: "Work Sans";
   font-weight: 400;
   font-size: 26px;
   color: #000000;
   text-align: center;
   margin-top: 20px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   margin-bottom: 30px;
 }
 
@@ -501,7 +580,7 @@ input[type="submit"]{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #E8F1F6;
+  background-color: #e8f1f6;
   border-radius: 3px;
   padding: 15px 0px 12px;
   margin-bottom: 30px;
@@ -520,13 +599,14 @@ input[type="submit"]{
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   border-radius: 3px;
   gap: 10px;
 }
 
 .preview i {
   font-size: 76px;
-  color: #B9C5CC;
+  color: #b9c5cc;
 }
 
 .preview {
@@ -535,31 +615,23 @@ input[type="submit"]{
   align-items: center;
   overflow: hidden;
   max-height: 193px;
-    max-width: 129px;
-}
-
-.label-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+  max-width: 129px;
 }
 
 .preview img {
   height: 193px;
-width: 129px;
-object-fit: contain;
+  width: 129px;
+  object-fit: contain;
   display: block;
 }
 
 .upload-btn {
-	display: flex;            
-  justify-content: center;  
+  display: flex;
+  justify-content: center;
   align-items: center;
-width: 173px;
-height: 36px;
-  background-color: #CBD6DC;
+  width: 173px;
+  height: 36px;
+  background-color: #cbd6dc;
   color: #306685;
   border-radius: 50px;
   font-family: "Work Sans";
@@ -590,7 +662,7 @@ height: 36px;
 .form-fields select {
   height: 51px;
   border: none;
-  box-shadow: 0px 4px 10px rgba(0,0,0,0.09);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.09);
   padding-left: 10px;
   font-family: "Work Sans";
   font-weight: 400;
@@ -605,7 +677,7 @@ height: 36px;
   margin: 20px auto;
   border: none;
   width: 420px;
-  border-top: 1px solid #B3B3B3;
+  border-top: 1px solid #b3b3b3;
 }
 
 /* bouton "valider" pour soumettre le formulaire d'ajout de photo */
@@ -615,7 +687,7 @@ height: 36px;
   height: 36px;
   border-radius: 60px;
   border: none;
-  background-color: #A7A7A7;
+  background-color: #a7a7a7;
   color: white;
   margin: auto;
   display: block;
@@ -627,7 +699,7 @@ height: 36px;
 
 /* état désactivé (gris car pas de photo chargée ni de formulaire rempli)*/
 #submitAddPhoto:disabled {
-  background-color: #A7A7A7;
+  background-color: #a7a7a7;
   cursor: not-allowed;
   opacity: 0.6;
 }
@@ -642,7 +714,7 @@ height: 36px;
 
 /* classe pour cacher la modale */
 .hidden {
-  display:none;
+  display: none;
 }
 
 /* -------------------------------------------------
@@ -662,74 +734,74 @@ height: 36px;
 
 /* container du formulaire de login */
 .login-container {
-	width: 400px;
-	margin: 100px auto;
+  width: 400px;
+  margin: 100px auto;
   margin-top: 0;
-	text-align: center;
+  text-align: center;
 }
 
 .login-container h2 {
-	color: #1D6154;
-	font-family: 'Syne';
-	font-weight: 700;
-	font-size: 26px;
-	margin-bottom: 2rem;
+  color: #1d6154;
+  font-family: "Syne";
+  font-weight: 700;
+  font-size: 26px;
+  margin-bottom: 2rem;
 }
 
 .login-form {
-	display: flex;
-	flex-direction: column;
-	gap: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
 }
 
 .login-form .email,
 .login-form .password {
-	gap: 5px;
+  gap: 5px;
 }
 
 .login-form label {
-	text-align: left;
-	font-family: 'Work Sans';
-	font-size: 14px;
+  text-align: left;
+  font-family: "Work Sans";
+  font-size: 14px;
 }
 
 .login-form input[type="email"],
 .login-form input[type="password"] {
-	height: 50px;
-	font-size: 1.1rem;
-	border: none;
-	box-shadow: 0px 4px 14px rgba(0,0,0,0.09);
-	padding: 0 10px;
+  height: 50px;
+  font-size: 1.1rem;
+  border: none;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  padding: 0 10px;
 }
 
 .login-error {
-	display: none;
-	margin-top: 0.8rem;
+  display: none;
+  margin-top: 0.8rem;
 }
 
 .login-forgot {
-	display: inline-block;
-	margin-top: 0.5rem;
-	font-family: "Work Sans";
-	font-size: 14px;
-	text-decoration: underline;
-	color: #3D3D3D;
-	font-weight: 500;
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-family: "Work Sans";
+  font-size: 14px;
+  text-decoration: underline;
+  color: #3d3d3d;
+  font-weight: 500;
 }
 
 .login-btn {
-	font-family: 'Syne';
-	font-size: 14px;
-	font-weight: 700;
-	color: white;
-	background-color: #1D6154;
-	border: none;
-	border-radius: 60px;
-	height: 36px;
-	width: 179px;
-	margin: 1.5rem auto 0;
-	cursor: pointer;
+  font-family: "Syne";
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+  background-color: #1d6154;
+  border: none;
+  border-radius: 60px;
+  height: 36px;
+  width: 179px;
+  margin: 1.5rem auto 0;
+  cursor: pointer;
 }
 .login-btn:hover {
-	filter: brightness(0.95);
+  filter: brightness(0.95);
 }
